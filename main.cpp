@@ -29,19 +29,6 @@ int rules()
     background.setFill();
 
     settextstyle(10, HORIZ_DIR, 3);           // format of text
-    /*
-    0-DEFAULT_FONT,
-    1-TRIPLEX_FONT,
-    2-SMALL_FONT,
-    3-SANS_SERIF_FONT,
-    4-GOTHIC_FONT,
-    5-SCRIPT_FONT,
-    6-SIMPLEX_FONT,
-    7-TRIPLEX_SCR_FONT,
-    8-COMPLEX_FONT,
-    9-EUROPEAN_FONT,
-    10-BOLD_FONT
-    */
     Text rules(400,120,"Rules for Cannon War:");
     Text line1(400,160,"#1 Both the players have to fire upon each other.");
     Text line2(400,200,"#2 Points are awarded on the basis of accuracy of hit.");
@@ -74,42 +61,11 @@ int m_menu()
 
     setfillstyle(7, RED);
 
-    /*
-    0-EMPTY_FILL,
-    1-SOLID_FILL,
-    2-LINE_FILL,
-    3-LTSLASH_FILL,
-    4-SLASH_FILL,
-    5-BKSLASH_FILL,
-    6-LTBKSLASH_FILL,
-    7-HATCH_FILL,
-    8-XHATCH_FILL,
-    9-INTERLEAVE_FILL,
-    10-WIDE_DOT_FILL,
-    11-CLOSE_DOT_FILL,
-    12-USER_FILL
-    */
-
     floodfill(400,300,RED);
 
     settextstyle( 8, HORIZ_DIR, 4);           // format of text
 
-    /*
-    0-DEFAULT_FONT,
-    1-TRIPLEX_FONT,
-    2-SMALL_FONT,
-    3-SANS_SERIF_FONT,
-    4-GOTHIC_FONT,
-    5-SCRIPT_FONT,
-    6-SIMPLEX_FONT,
-    7-TRIPLEX_SCR_FONT,
-    8-COMPLEX_FONT,
-    9-EUROPEAN_FONT,
-    10-BOLD_FONT
-    */
-
     background.setColor(LIGHTBLUE);
-    //floodfill(100,100,BLACK);
 
     Rectangle R1(400,310,200,40);
     R1.setColor(COLOR(0,255,0));
@@ -273,7 +229,7 @@ class cannon
 void setscreen()
 {
     cannon cannon1,cannon2;
-    int RandIndex = rand() % 9; //generates a random number between 0 and 9
+    int RandIndex = rand() % 9; //generates a random number between 0 and 8
 
     cannon1.t.reset(cannon1_x[RandIndex],(490-(cannon1_y[RandIndex]/2)-5),30,10);
     cannon1.c1.reset(cannon1_x[RandIndex]-7,(500-(cannon1_y[RandIndex]/2)-5),5);
@@ -314,20 +270,6 @@ void setscreen()
     int chance=1;
     double power,angle;
     settextstyle(10, HORIZ_DIR, 2);
-
-    /*
-    0-DEFAULT_FONT,
-    1-TRIPLEX_FONT,
-    2-SMALL_FONT,
-    3-SANS_SERIF_FONT,
-    4-GOTHIC_FONT,
-    5-SCRIPT_FONT,
-    6-SIMPLEX_FONT,
-    7-TRIPLEX_SCR_FONT,
-    8-COMPLEX_FONT,
-    9-EUROPEAN_FONT,
-    10-BOLD_FONT
-    */
 
     Text t1(80,10,"Power");
     Text t2(700,10,"Angle");
