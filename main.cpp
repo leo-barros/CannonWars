@@ -275,8 +275,8 @@ void setscreen()
     Text t2(700,10,"Angle");
     Text t4(610,50,"0 deg");
     Text t5(760,50,"180 deg");
-    Text t6(80,70,"Player 1");
-    Text t7(720,70,"Player 2");
+    Text t6(80,210,"Player 1");
+    Text t7(720,210,"Player 2");
 
     Rectangle r1(80,30,100,20);         //power
     Rectangle r2(700,30,180,20);        //angle
@@ -368,7 +368,7 @@ void setscreen()
                     cannon1.shot(power,angle,chance,wind);
                     int RandIndex = rand() % 9; //generates a random number between 0 and 9
 
-                    cannon1.t.reset(cannon1_x[RandIndex],(490-(cannon1_y[RandIndex]/2)-5),30,10);
+                    cannon1.t.reset(cannon1_x[RandIndex],(490-(cannon1_y[RandIndex]/2)-5),30,10); //to randomize position of cannons on terrain after each shot
                     cannon1.c1.reset(cannon1_x[RandIndex]-7,(500-(cannon1_y[RandIndex]/2)-5),5);
                     cannon1.c3.reset(cannon1_x[RandIndex]+12.5,(490-(cannon1_y[RandIndex]/2)-5),5);
                     cannon1.c2.reset(cannon1_x[RandIndex]+10,(500-(cannon1_y[RandIndex]/2)-5),5);
@@ -422,15 +422,6 @@ int main()
         Rectangle R(400,550,800,100);
         R.setColor(GREEN);
         R.setFill();
-        time_t now = time(0);
-
-        //convert now to string form
-        char* dt = ctime(&now);
-        //converting dt to integer
-        int x=(int)dt;
-        int terrain_choice=0;                   //Randomising terrain
-
-        if(terrain_choice==0)
         {
             for(int i=0;i<20;i++)
             {
