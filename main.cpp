@@ -34,7 +34,6 @@ int rules()
     Text line2(400,200,"#2 Points are awarded on the basis of accuracy of hit.");
     Text line3(400,240,"#3 The first person to reach a hundred points wins.");
     Text line4(400,280,"#4 Set the power and angle and click on fire.");
-    Text line5(400,320,"#5 There is a random wind , a surprise element ;) ");
     Text line6(400,420,"Done By:");
     Text line7(400,450,"Leo Barros, Isaiah D'Costa, Duane Rodrigues,");
     Text line8(400,470,"Joshua Coutinho");
@@ -49,7 +48,8 @@ int rules()
     int y = temp%65536;
 
     if(x>10&&x<30&&y>0&&y<20)
-        return 2;
+        m_menu();
+
 
 }
 
@@ -157,13 +157,11 @@ class cannon
         }
     }
 
-    void shot(double pow,double angle,int i,int wind)
+    void shot(double pow,double angle,int i)
     {
-        //pow = (pow*4*sqrt(2))/100;                            // to optimise power
-        //angle = (pi/180)*angle;                                 // to convert degree to radian measure
-        // double vx = (pow*cos(angle))/10 , vy = -(pow*sin(angle))/10 , tf ;
-        double vx = pow/15 + wind;
-        double vy = -pow/8;
+        angle = (pi/180)*angle;                                 // to convert degree to radian measure
+        double vx = (pow*cos(angle))/10 , vy = -(pow*sin(angle))/10 ;
+
 
         int n=200;
 
@@ -299,12 +297,6 @@ void setscreen()
     temp=getClick();
     codx=temp/65536;
     cody=temp%65536;
-
-    time_t now2 = time(0);
-    char* dt = ctime(&now2);            // convert now to string form
-    int wx=(int)dt;                     //converting dt to integer
-    int wind=(wx%5)-2;                  //random wind
-
     LABEL :check=0;
     cout<<"Player 1: "<<point1<<" points"<<endl;           //consoling out points
     cout<<"Player 2: "<<point2<<" points"<<endl;
@@ -365,7 +357,7 @@ void setscreen()
             {
                 if(chance%2==1)
                 {
-                    cannon1.shot(power,angle,chance,wind);
+                    cannon1.shot(power,angle,chance);
                     int RandIndex = rand() % 9; //generates a random number between 0 and 9
 
                     cannon1.t.reset(cannon1_x[RandIndex],(490-(cannon1_y[RandIndex]/2)-5),30,10); //to randomize position of cannons on terrain after each shot
@@ -379,7 +371,7 @@ void setscreen()
                 }
                 else
                 {
-                    cannon2.shot(power,angle,chance,wind);
+                    cannon2.shot(power,angle,chance);
                     int RandIndex = rand() % 9; //generates a random number between 0 and 9
 
                     cannon2.t.reset(cannon2_x[RandIndex],(490-(cannon2_y[RandIndex]/2)-5),30,10);
